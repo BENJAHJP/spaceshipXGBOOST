@@ -108,15 +108,16 @@ print("y shape is :", y.shape)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 # model creation
-model = KNeighborsClassifier(n_neighbors=20)
+model = KNeighborsClassifier(n_neighbors=50, p=3)
 
 # fit model
-model.fit(X, y)
+model.fit(X_train, y_train)
 
 # predict
 
 prediction = model.predict(test_data)
 
+print(model.score(X_test, y_test))
 # score
 
 submission = pd.DataFrame({

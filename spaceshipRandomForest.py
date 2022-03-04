@@ -103,25 +103,24 @@ test_data = test_data.to_numpy()
 # y = y.reshape(n_samples, -1)
 
 y = y.ravel()
-print("y shape is :", y.shape)
+# print("y shape is :", y.shape)
 
 # train test split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 # model creation
-model = RandomForestClassifier(n_estimators=300)
+model = RandomForestClassifier(n_estimators=70, verbose=1, criterion="entropy", max_depth=15)
 
 # fit model
-model.fit(X, y)
+print(model.fit(X_train, y_train))
 
 # predic
 
 prediction = model.predict(test_data)
 
+print(model.score(X_test, y_test))
 
 # score
-
-print(test_before['PassengerId'])
 
 submission = pd.DataFrame({
     'PassengerId': test_before['PassengerId'],
