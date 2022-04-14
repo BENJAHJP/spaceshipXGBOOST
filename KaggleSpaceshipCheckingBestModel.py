@@ -80,7 +80,7 @@ train_data = pd.concat([home_planet_dummies, destination_planet_dummies, df], ax
 # print(train_data.columns)
 # print(test_data.columns)
 # print(test_data['CryoSleep'])
-
+print(test_data.head())
 # scale FoodCourt, PassengerId, Age, ShoppingMall, VRDeck, RoomService
 
 Scaler = StandardScaler()

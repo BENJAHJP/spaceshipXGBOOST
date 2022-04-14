@@ -24,13 +24,20 @@ print(spearmanr(df["FoodCourt"], df["Transported"]))
 
 # check for null values and drop rows with at least one null values
 
-df.isnull().sum()
-df = df.dropna()
+df['Age'] = df['Age'].fillna(df['Age'].median())
+df['HomePlanet'] = df['HomePlanet'].fillna(df['HomePlanet'].mode()[0])
+df['CryoSleep'] = df['CryoSleep'].fillna(df['CryoSleep'].mode()[0])
+df['Destination'] = df['Destination'].fillna(df['Destination'].mode()[0])
+df['VIP'] = df['VIP'].fillna(df['VIP'].mode()[0])
+df['RoomService'] = df['RoomService'].fillna(df['RoomService'].mean())
+df['FoodCourt'] = df['FoodCourt'].fillna(df['FoodCourt'].mean())
+df['ShoppingMall'] = df['ShoppingMall'].fillna(df['ShoppingMall'].mean())
+df['VRDeck'] = df['VRDeck'].fillna(df['VRDeck'].mean())
 
 # print("test.isnull().sum()", test.isnull().sum())
 # check for null and engineer the features
 
-test['Age'] = test['Age'].fillna(test['Age'].mean())
+test['Age'] = test['Age'].fillna(test['Age'].median())
 test['HomePlanet'] = test['HomePlanet'].fillna(test['HomePlanet'].mode()[0])
 test['CryoSleep'] = test['CryoSleep'].fillna(test['CryoSleep'].mode()[0])
 test['Destination'] = test['Destination'].fillna(test['Destination'].mode()[0])
@@ -42,8 +49,8 @@ test['VRDeck'] = test['VRDeck'].fillna(test['VRDeck'].mean())
 
 # drop cabin and spa
 
-test = test.drop(['Cabin', 'Spa', 'Name'], axis=1)
-df = df.drop(['Cabin', 'Spa', 'Name'], axis=1)
+test = test.drop(['Spa', 'Name', 'Cabin'], axis=1)
+df = df.drop(['Spa', 'Name', 'Cabin'], axis=1)
 
 # one hot encode home-planet, cryo-sleep, VIP, Transported
 
@@ -74,8 +81,8 @@ df = df.drop(['HomePlanet', 'Destination', 'PassengerId'], axis=1)
 test_data = pd.concat([home_planet_test_dummies, destination_planet_test_dummies, test], axis=1)
 train_data = pd.concat([home_planet_dummies, destination_planet_dummies, df], axis=1)
 
-# print(train_data.columns)
-# print(test_data.columns)
+print(train_data.columns.size)
+print(test_data.columns.size)
 # print(test_data['CryoSleep'])
 
 # scale FoodCourt, PassengerId, Age, ShoppingMall, VRDeck, RoomService
@@ -86,6 +93,8 @@ train_data[feature_scale] = Scaler.fit_transform(train_data[feature_scale])
 
 test_data[feature_scale] = Scaler.fit_transform(test_data[feature_scale])
 
+print(f"test_data.shape {test_data.shape}")
+print(f"train_data.shape {train_data.shape}")
 # X data and y data
 # print(train_data)
 X = train_data.drop(['Transported'], axis=1)
@@ -107,21 +116,20 @@ print("y shape is :", y.shape)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 # model creation
-model = SVC(C=100, kernel='rbf', gamma=0.20)
+model = SVC(C=1000, kernel='rbf', gamma=0.20)
 
 # fit model
-model.fit(X_train, y_train)
+model.fit(X, y)
 
-# predic
+# predict
 
-prediction = model.predict(X_test)
+prediction = model.predict(test_data)
 
 print(model.score(X_test, y_test))
-# submission
 
-# submission = pd.DataFrame({
-#     'PassengerId': test_before['PassengerId'],
-#     'Transported': prediction.astype(bool)
-# })
-#
-# submission.to_csv("spaceship_submission_v10.csv", index=False)
+submission = pd.DataFrame({
+    'PassengerId': test_before['PassengerId'],
+    'Transported': prediction.astype(bool)
+})
+
+submission.to_csv("spaceship_submission_v19.csv", index=False)

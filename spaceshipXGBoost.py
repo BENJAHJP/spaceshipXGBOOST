@@ -24,7 +24,7 @@ print(spearmanr(df["FoodCourt"], df["Transported"]))
 
 # check for null values and drop rows with at least one null values
 
-df['Age'] = df['Age'].fillna(df['Age'].mean())
+df['Age'] = df['Age'].fillna(df['Age'].median())
 df['HomePlanet'] = df['HomePlanet'].fillna(df['HomePlanet'].mode()[0])
 df['CryoSleep'] = df['CryoSleep'].fillna(df['CryoSleep'].mode()[0])
 df['Destination'] = df['Destination'].fillna(df['Destination'].mode()[0])
@@ -34,11 +34,10 @@ df['FoodCourt'] = df['FoodCourt'].fillna(df['FoodCourt'].mean())
 df['ShoppingMall'] = df['ShoppingMall'].fillna(df['ShoppingMall'].mean())
 df['VRDeck'] = df['VRDeck'].fillna(df['VRDeck'].mean())
 
-print(df.isnull().sum())
 # print("test.isnull().sum()", test.isnull().sum())
 # check for null and engineer the features
 
-test['Age'] = test['Age'].fillna(test['Age'].mean())
+test['Age'] = test['Age'].fillna(test['Age'].median())
 test['HomePlanet'] = test['HomePlanet'].fillna(test['HomePlanet'].mode()[0])
 test['CryoSleep'] = test['CryoSleep'].fillna(test['CryoSleep'].mode()[0])
 test['Destination'] = test['Destination'].fillna(test['Destination'].mode()[0])
