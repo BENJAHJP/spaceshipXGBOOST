@@ -1,6 +1,6 @@
 import tensorflow_hub as hub
 import tensorflow as tf
-
+import BERT
 
 bert_encoder_url = "/home/b3njah/Documents/Bert/bert/bertmodel/bert_model/"
 bert_preprocess_url = "/home/b3njah/Documents/Bert/bert/preprocess/bert_preprocess/"
@@ -33,7 +33,7 @@ sentences = [
                 "why the deadly attacks against foreigners in south africa come as no surprise",
                 "immigration backlash at the heart of british push to leave the e.u.",
                 "area ladder never thought it would end up a bookcase",
-                "little pussy has to take phone call in other room",
+                "little has to take phone call in other room",
                 "romney: democrats lost because they weren't 'proud' enough of obama",
                 "mosquitoes don't even need to bite us, study shows",
                 "Don't act like a silly boy",
@@ -42,9 +42,9 @@ sentences = [
 
 
 def preprocess_embedding(sentence):
-    preprocessed_sentence = bert_preprocess(sentence)
-    output = bert_encoder(preprocessed_sentence)
-    return output
+    preprocessed_sentence = BERT.bert_preprocess(sentence)
+    #output = BERT.bert_encoder(preprocessed_sentence)
+    return preprocessed_sentence
 
 
 print(preprocess_embedding(sentences))

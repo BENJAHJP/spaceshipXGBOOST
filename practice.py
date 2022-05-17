@@ -1,5 +1,10 @@
-def solution(s)
-    s.split()
+num = [2, 4, 5, 6, 7]
 
-a = 'abc'
-solution(a)
+
+def linear_search(number):
+    for i, val in enumerate(num):
+        if val == number:
+            return i
+
+
+print(linear_search(7))
