@@ -142,7 +142,7 @@ if __name__ == '__main__':
     while True:
         game_over, score = game.play_step()
 
-        if game_over == True:
+        if game_over:
             break
 
     print('Final Score', score)

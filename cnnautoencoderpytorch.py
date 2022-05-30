@@ -31,7 +31,7 @@ class CnnAutoEncoder(nn.Module):
             nn.ConvTranspose2d(in_channels=32, out_channels=16, kernel_size=3, padding=1, stride=2, output_padding=1),
             nn.ReLU(),
             nn.ConvTranspose2d(in_channels=16, out_channels=1, kernel_size=3, padding=1, stride=2, output_padding=1),
-            nn.Sigmoid()
+            #nn.Sigmoid()
         )
 
     def forward(self, data_input):

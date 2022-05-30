@@ -69,10 +69,10 @@ class ConvolutionalNeuralNet(nn.Module):
         x = self.max_pool1(x)
         x = F.relu(self.conv_layer2(x))
         x = self.max_pool1(x)
-        x = x.reshape(x.shape[0], -1)
+        x = x.view(x.shape[0], -1)
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
-        return F.softmax(self.fc3(x))
+        return self.fc3(x)
 
 
 model = ConvolutionalNeuralNet()
@@ -99,7 +99,3 @@ for epoch in range(num_epochs):
     if(epoch+1) % 5 == 0:
         print(f"------ epoch {epoch+1} loss {loss.item():.4f} accuracy --------")
 
-
-matrix = ConfusionMatrixDisplay.from_predictions(y_test.detach().numpy(), np.argmax(y_predicted.detach().numpy()))
-print(matrix.confusion_matrix)
-plt.show()

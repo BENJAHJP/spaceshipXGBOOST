@@ -1,0 +1,51 @@
+id1_name,id2_name,id_1,id_2,similarity,similar
+hen,chick,1,0,0.3912068727278111,Not similar
+hen,advantange,1,1,0.0319299682547359,Not similar
+hen,sky ,1,2,0.2139798656355139,Not similar
+hen,sunny,1,3,0.17837435170764898,Not similar
+hen,horizon ,1,4,0.13664956846671603,Not similar
+hen,cat,1,5,0.34963647945826204,Not similar
+hen,dog,1,6,0.3233523110047757,Not similar
+hen,mouse,1,7,0.22723482507660533,Not similar
+hen,horse,1,8,0.30344221538807653,Not similar
+hen,begin,1,9,0.14728588632699718,Not similar
+jump,chick,2,0,0.2670736039175287,Not similar
+jump,advantange,2,1,-0.05764402241593587,Not similar
+jump,sky ,2,2,0.32348150264229936,Not similar
+jump,sunny,2,3,0.17402112197949385,Not similar
+jump,horizon ,2,4,0.2663854202737107,Not similar
+jump,cat,2,5,0.29560663810681287,Not similar
+jump,dog,2,6,0.3333892423031787,Not similar
+jump,mouse,2,7,0.3120369895889659,Not similar
+jump,horse,2,8,0.3643497934852909,Not similar
+jump,begin,2,9,0.40866148407409875,Not similar
+breeze,chick,3,0,0.16549269028927724,Not similar
+breeze,advantange,3,1,0.019853930849098773,Not similar
+breeze,sky ,3,2,0.5358065982573958,similar
+breeze,sunny,3,3,0.556804437077621,similar
+breeze,horizon ,3,4,0.45220780967066165,Not similar
+breeze,cat,3,5,0.19240958878381606,Not similar
+breeze,dog,3,6,0.17815756884525163,Not similar
+breeze,mouse,3,7,0.18239990391126698,Not similar
+breeze,horse,3,8,0.23880223324525715,Not similar
+breeze,begin,3,9,0.2598838224007737,Not similar
+snow,chick,4,0,0.22035076918018895,Not similar
+snow,advantange,4,1,-0.13660161356322248,Not similar
+snow,sky ,4,2,0.5404515869466234,similar
+snow,sunny,4,3,0.5223289234451322,similar
+snow,horizon ,4,4,0.36172729033475776,Not similar
+snow,cat,4,5,0.34067659003638096,Not similar
+snow,dog,4,6,0.37170880241159093,Not similar
+snow,mouse,4,7,0.20865864455357977,Not similar
+snow,horse,4,8,0.345008354491971,Not similar
+snow,begin,4,9,0.26420821931133515,Not similar
+opportunity,chick,5,0,0.10205746117941365,Not similar
+opportunity,advantange,5,1,0.027760632699857294,Not similar
+opportunity,sky ,5,2,0.17039694263697294,Not similar
+opportunity,sunny,5,3,0.23243176216908046,Not similar
+opportunity,horizon ,5,4,0.27742684080932833,Not similar
+opportunity,cat,5,5,0.13993799232851653,Not similar
+opportunity,dog,5,6,0.22666043730401123,Not similar
+opportunity,mouse,5,7,0.10086288639753052,Not similar
+opportunity,horse,5,8,0.25784637750830447,Not similar
+opportunity,begin,5,9,0.5353815588367524,similar

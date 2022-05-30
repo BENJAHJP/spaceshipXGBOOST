@@ -6,6 +6,7 @@ from keras.layers import Dense, Conv2D, MaxPool2D, Flatten
 import numpy as np
 from sklearn.metrics import ConfusionMatrixDisplay
 
+
 data = load_digits()
 
 X = data.images
