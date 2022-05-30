@@ -1,44 +1,22 @@
-import pandas as pd
-import spacy
-from sklearn.metrics.pairwise import cosine_similarity
+import random
+import turtle
 
-# model instance
-nlp = spacy.load("en_core_web_lg")
+t = turtle.Turtle()
+# t.pensize(5)
+t.pensize(2.5)
+t.pencolor('white')
+turtle.Screen().bgcolor('black')
+t.speed(15)
 
-df1 = pd.read_csv("/home/b3njah/Documents/data1.csv")
-df2 = pd.read_csv("/home/b3njah/Documents/data2.csv")
+colors = ['red', 'blue', 'orange', 'purple']
+for i in range(0, 100):
+    t.pencolor(colors[random.randint(0, 3)])
+    # t.circle(100)
+    # t.forward(30)
+    # t.left(20)
+    # t.right(90)
+    t.circle(i)
+    t.left(10)
+    t.forward(30)
 
-print(df1['name'][1])
-
-similarity = []
-id1_name = []
-id2_name = []
-simi = []
-id_1 = []
-id_2 = []
-for i in range(df1.shape[0]):
-    for k in range(df2.shape[0]):
-        base = nlp(df1.name[i])
-        compare = nlp(df2.name[k])
-        similar = base.similarity(compare)
-        if similar > 0.5:
-            simi.append("similar")
-        else:
-            simi.append("Not similar")
-        id_1.append(df1.id[i])
-        id_2.append(df2.id[k])
-        similarity.append(similar)
-        id1_name.append(df1['name'][i])
-        id2_name.append(df2['name'][k])
-
-
-submission = pd.DataFrame({
-    "id1_name": id1_name,
-    "id2_name": id2_name,
-    "id_1":id_1,
-    "id_2":id_2,
-    "similarity":similarity,
-    "similar":simi
-})
-
-submission.to_csv("sub.csv", index=False)
+turtle.done()
